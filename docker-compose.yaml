@@ -1,0 +1,116 @@
+version: "3.3"
+services:
+        dc-redis-master:
+                image: redis
+                container_name: dc-redis-master
+                ports:
+                  - "6360:6379"
+                stdin_open: true
+                networks:
+                  redis-test:
+                        ipv4_address: 172.168.0.5
+                tty: true
+                privileged: true
+                volumes: 
+                  - /usr/local/docker-compose-redis-sentinel/redis-master-conf:/config       
+                working_dir: /config
+                depends_on:
+                  - "dc-redis-slave1"
+                  - "dc-redis-slave2"      
+                entrypoint:
+                  - /bin/bash
+                  - start.sh
+        dc-redis-slave1:
+                image: redis
+                container_name: dc-redis-slave1
+                ports:
+                  - "6361:6379"
+                stdin_open: true
+                networks:
+                  redis-test:
+                        ipv4_address: 172.168.0.6
+                tty: true
+                privileged: true
+                volumes: 
+                  - /usr/local/docker-compose-redis-sentinel/redis-slave1-conf:/config
+                working_dir: /config
+                entrypoint:
+                  - /bin/bash
+                  - start.sh
+        dc-redis-slave2:
+                image: redis
+                container_name: dc-redis-slave2
+                ports:
+                  - "6362:6379"
+                stdin_open: true
+                networks:
+                  redis-test:
+                        ipv4_address: 172.168.0.7
+                tty: true
+                privileged: true
+                volumes: 
+                  - /usr/local/docker-compose-redis-sentinel/redis-slave2-conf:/config
+                working_dir: /config
+                entrypoint:
+                  - /bin/bash
+                  - start.sh
+        dc-redis-sentinel:
+                image: redis
+                container_name: dc-redis-sentinel
+                ports:
+                  - "26360:26379"
+                stdin_open: true
+                networks:
+                  redis-test:
+                        ipv4_address: 172.168.0.8
+                tty: true
+                privileged: true
+                volumes: 
+                  - /usr/local/docker-compose-redis-sentinel/redis-sentinel-conf:/config
+                working_dir: /config
+                depends_on:
+                  - "dc-redis-master"
+                entrypoint:
+                  - /bin/bash
+                  - start.sh
+        dc-redis-sentinel1:
+                image: redis
+                container_name: dc-redis-sentinel1
+                ports:
+                  - "26361:26379"
+                stdin_open: true
+                networks:
+                  redis-test:
+                        ipv4_address: 172.168.0.9
+                tty: true
+                privileged: true
+                volumes: 
+                  - /usr/local/docker-compose-redis-sentinel/redis-sentinel1-conf:/config
+                working_dir: /config
+                depends_on:
+                  - "dc-redis-master"
+                entrypoint:
+                  - /bin/bash
+                  - start.sh
+        dc-redis-sentinel2:
+                image: redis
+                container_name: dc-redis-sentinel2
+                ports:
+                  - "26362:26379"
+                stdin_open: true
+                networks:
+                  redis-test:
+                        ipv4_address: 172.168.0.10
+                tty: true
+                privileged: true
+                volumes: 
+                  - /usr/local/docker-compose-redis-sentinel/redis-sentinel2-conf:/config
+                working_dir: /config
+                depends_on:
+                  - "dc-redis-master"
+                entrypoint:
+                  - /bin/bash
+                  - start.sh
+networks:
+        redis-test:
+                external: true

@@ -34,6 +34,7 @@ drwxrwxrwx. 2 root root   84 Nov 27 21:56 redis-slave2-conf
 # 2.编写docker-compose编排文件docker-compose.yaml
 
 查看构建编排文件的版本
+
 [root@localhost docker-compose-redis-sentinel]# docker-compose version
 docker-compose version 1.18.0, build 8dd22a9
 docker-py version: 2.6.1
@@ -41,6 +42,7 @@ CPython version: 3.6.8
 OpenSSL version: OpenSSL 1.0.2k-fips  26 Jan 2017
 #【注意：安装的时候如果版本不对会自动提示版本】
 例子：
+
 [root@localhost docker-compose-redis-sentinel]# docker-compose up -d
 
 WARNING: Found multiple config files with supported names: docker-compose.yml, docker-compose.yaml

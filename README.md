@@ -68,7 +68,9 @@ e53b98603a3c        redis               "/bin/bash start.sh"   7 seconds ago    
 
 
 # 5.编排的启动和关闭都需要在对应的目录下执行
+
 docker-compose start
+
 docker-compose stop
 
 # 6.查看编排容器

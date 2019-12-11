@@ -9,7 +9,7 @@ docker-compose编排方式安装redis 主从复制与哨兵机制
 
 [root@localhost ]#cd /usr/local/docker-compose-redis-sentinel
 
-[root@localhost docker-compose-redis-sentinel]# ll
+[root@localhost docker-compose-redis-sentinel]#ll
 total 8
 drwxrwxrwx. 2 root root   51 Nov 27 20:27 conf
 -rwxrwxrwx. 1 root root 3984 Nov 27 21:56 docker-compose.yaml
@@ -42,6 +42,7 @@ OpenSSL version: OpenSSL 1.0.2k-fips  26 Jan 2017
 #【注意：安装的时候如果版本不对会自动提示版本】
 例子：
 [root@localhost docker-compose-redis-sentinel]# docker-compose up -d
+
 WARNING: Found multiple config files with supported names: docker-compose.yml, docker-compose.yaml
 WARNING: Using docker-compose.yml
 

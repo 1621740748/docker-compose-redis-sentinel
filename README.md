@@ -74,6 +74,7 @@ docker-compose start
 docker-compose stop
 
 # 6.查看编排容器
+
 [root@localhost docker-compose-redis-sentinel]# docker-compose ps
        Name               Command          State                   Ports               
 ---------------------------------------------------------------------------------------

@@ -4,6 +4,7 @@ docker-compose编排方式安装redis 主从复制与哨兵机制
          
 # 安装准备：
 [root@localhost ]#mkdir -p  /usr/local/docker-compose-redis-sentinel
+
 将准备文件全部上传到docker-compose-redis-sentinel目录下
 
 [root@localhost ]#cd /usr/local/docker-compose-redis-sentinel
@@ -25,7 +26,8 @@ drwxrwxrwx. 2 root root   84 Nov 27 21:56 redis-slave2-conf
 
 # 1.构建镜像
 
-#在dockerfile目录 执行下面代码，注意后面上下文点号，执行创建镜像；创建完成后可以docker images查看生成的镜像
+#在dockerfile目录 执行下面代码，注意后面上下文点号，执行创建镜像；
+创建完成后可以docker images查看生成的镜像
 [root@localhost docker-compose-redis-sentinel]# docker build -t redis .
 
 
@@ -37,7 +39,7 @@ docker-compose version 1.18.0, build 8dd22a9
 docker-py version: 2.6.1
 CPython version: 3.6.8
 OpenSSL version: OpenSSL 1.0.2k-fips  26 Jan 2017
-# 【注意：安装的时候如果版本不对会自动提示版本】
+#【注意：安装的时候如果版本不对会自动提示版本】
 例子：
 [root@localhost docker-compose-redis-sentinel]# docker-compose up -d
 WARNING: Found multiple config files with supported names: docker-compose.yml, docker-compose.yaml
@@ -74,7 +76,6 @@ docker-compose start
 docker-compose stop
 
 # 6.查看编排容器
-
 [root@localhost docker-compose-redis-sentinel]# docker-compose ps
        Name               Command          State                   Ports               
 ---------------------------------------------------------------------------------------

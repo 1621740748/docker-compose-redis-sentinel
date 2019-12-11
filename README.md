@@ -11,11 +11,11 @@ docker-compose编排方式安装redis 主从复制与哨兵机制
 
 [root@localhost docker-compose-redis-sentinel]#ll
 
-创建网卡:
+# 创建网卡:
 
 [root@localhost docker-compose-redis-sentinel]# docker network create --driver=bridge --subnet=172.168.0.0/16 redis-test
-查看网卡：
 
+# 查看网卡：
 [root@localhost docker-compose-redis-sentinel]# docker network ls
 
 
